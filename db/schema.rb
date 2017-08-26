@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 20170826202941) do
     t.integer "to_id"
     t.integer "order_id"
     t.decimal "price", default: "0.0"
-    t.decimal "quantity", default: "0.0"
+    t.integer "quantity", default: 0
     t.decimal "fee", default: "0.0"
   end
 
