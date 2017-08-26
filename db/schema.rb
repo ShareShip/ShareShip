@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170826190554) do
+ActiveRecord::Schema.define(version: 20170826202941) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "product_orders", force: :cascade do |t|
+  create_table "orders", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "vendor_id"
     t.string "name", default: ""
@@ -25,8 +25,19 @@ ActiveRecord::Schema.define(version: 20170826190554) do
     t.string "city", default: ""
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_product_orders_on_user_id"
-    t.index ["vendor_id"], name: "index_product_orders_on_vendor_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
+    t.index ["vendor_id"], name: "index_orders_on_vendor_id"
+  end
+
+  create_table "payments", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "from_id"
+    t.integer "to_id"
+    t.integer "order_id"
+    t.decimal "price", default: "0.0"
+    t.decimal "quantity", default: "0.0"
+    t.decimal "fee", default: "0.0"
   end
 
   create_table "users", force: :cascade do |t|
@@ -53,6 +64,6 @@ ActiveRecord::Schema.define(version: 20170826190554) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "product_orders", "users"
-  add_foreign_key "product_orders", "vendors"
+  add_foreign_key "orders", "users"
+  add_foreign_key "orders", "vendors"
 end
