@@ -15,6 +15,20 @@ ActiveRecord::Schema.define(version: 20170826190554) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "product_orders", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "vendor_id"
+    t.string "name", default: ""
+    t.decimal "price", default: "0.0"
+    t.integer "quantity", default: 0
+    t.datetime "date"
+    t.string "city", default: ""
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_product_orders_on_user_id"
+    t.index ["vendor_id"], name: "index_product_orders_on_vendor_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -39,4 +53,6 @@ ActiveRecord::Schema.define(version: 20170826190554) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "product_orders", "users"
+  add_foreign_key "product_orders", "vendors"
 end
