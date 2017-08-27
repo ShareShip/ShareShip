@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 #
 
-User.create(email: 'admin@example.com', password: 'password', address: '123 test st, toronto, ON, L4L 2L5')
+User.create(email: 'admin@example.com', password: 'password')
 
 50.times do
 	Vendor.create(name: Faker::Company.unique.name)
@@ -16,13 +16,14 @@ end
 vendors = Vendor.all.pluck(:id)
 
 50.times do 
-  f = Faker::Address
-  address = f.street_address + ' street, ' + f.city + ', ' + f.state_abbr + ' ' + f.zip
   u = User.create!(
 	      email: Faker::Internet.unique.email,
 	      password: Faker::Internet.password(6, 20),
-	      address: address,
-	      city: f.city
+	      address_line_1: Faker::Address.street_address,
+	      city: Faker::Address.city,
+	      state: Faker::Address.state_abbr,
+	      zip: Faker::Address.zip,
+	      phone: Faker::PhoneNumber.phone_number
 	  )
 
   r = rand(3) # 1 in 3 chance of user having an order listing
@@ -50,17 +51,18 @@ end
 
   users = User.all.pluck(:id)
 
-Order.all.sample(20) do |o|
-	from_id = users.sample
-	to_id = (users - [from_id]).sample
-	Payment.create(
-		from_id: from_id,
-		to_id: to_id,
-		price: o.price,
-		quantity: o.quantity,
-		fee: "0.0")
-
-
+Order.all.each do |o|
+	if rand(3) == 0
+		from_id = users.sample
+		to_id = (users - [from_id]).sample
+		Payment.create!(
+			from_id: from_id,
+			to_id: to_id,
+			order_id: o.id,
+			price: o.price,
+			quantity: o.quantity,
+			fee: sprintf("%.2f", o.shipping.to_f * 0.6) )
+	end
 end
 
 
