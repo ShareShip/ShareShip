@@ -4,4 +4,5 @@ Rails.application.routes.draw do
 
   root 'home#index'
   get '/about' => 'home#about'
+  get '/order/new' => 'order#new'
 end
