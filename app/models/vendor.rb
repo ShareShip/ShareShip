@@ -1,7 +1,13 @@
 class Vendor < ApplicationRecord
 	has_many :orders
 
-
+	def self.all_stores
+		stores = []
+		self.all.each do |s|
+			stores.push([s.name])
+		end
+		stores
+	end
 
 
 	def store_page
