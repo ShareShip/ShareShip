@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   get '/vendors' => 'vendor#index'
   get '/vendor/:name' => 'vendor#show'
 
+  get '/payment/new' => 'payment#new'
+
   get '/orders' => 'order#index'
 
 end
