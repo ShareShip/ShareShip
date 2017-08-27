@@ -24,8 +24,4 @@ class User < ApplicationRecord
     end
   end
 
-  # def strip_phone_number
-  #   phone = phone.gsub(/\D/, '').to_i
-  #   binding.pry
-  # end
 end
