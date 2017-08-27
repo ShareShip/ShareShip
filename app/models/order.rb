@@ -1,4 +1,6 @@
 class Order < ApplicationRecord
+  extend ActionView::Helpers::NumberHelper    # Access number functions
+
   belongs_to :user
   belongs_to :vendor
   has_one :payment
@@ -13,7 +15,7 @@ class Order < ApplicationRecord
   def self.main_page
   	main_page = []
   	self.all.each do |o|
-		main_page.push([o.city, o.name, o.price, o.quantity, o.date])
+		main_page.push([o.city, o.name, o.price, o.quantity, number_to_phone(o.user.phone), o.date ])
 	end
 	main_page
   end
