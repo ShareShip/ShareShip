@@ -1,5 +1,5 @@
 
-$.getJSON( location.href +".json",function(data){
+$.getJSON( "/orders.json",function(data){
   $('#order-table').DataTable({
     data: data,
     columns: [
