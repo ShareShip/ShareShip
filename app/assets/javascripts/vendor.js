@@ -21,4 +21,11 @@ $.getJSON( "/vendors.json",function(data){
               { title: "Vendor", className: ""}
             ]
   });
+
+  $('#vendor-index-table').on('click', 'tbody td', function() {
+    console.log(data[this.parentNode.rowIndex - 1])
+    window.location.href = '/vendor/' + data[this.parentNode.rowIndex - 1]
+  })
+
+
 })
