@@ -9,7 +9,6 @@ class User < ApplicationRecord
   has_many :orders
 
   validates :email, uniqueness: true, presence: true
-  validates :password, presence:true
   validates :address_line_1, presence:true
   validates :city, presence: true
   validates :state, presence: true, length: { is: 2 }

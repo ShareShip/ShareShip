@@ -7,7 +7,12 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 #
 
-User.create(email: 'admin@example.com', password: 'password')
+User.create(email: 'admin@example.com', password: 'password', 
+			address_line_1: Faker::Address.street_address,
+	     	city: Faker::Address.city,
+	     	state: Faker::Address.state_abbr,
+	     	zip: Faker::Address.zip,
+	     	phone: Faker::PhoneNumber.phone_number )
 
 50.times do
 	Vendor.create(name: Faker::Company.unique.name.gsub(/\,/, '').gsub(/\s+/, "_"))
