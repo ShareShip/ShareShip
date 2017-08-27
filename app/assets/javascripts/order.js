@@ -1,6 +1,7 @@
 
 $.getJSON( "/orders.json",function(data){
   $('#order-table').DataTable({
+    destroy: true,
     data: data,
     columns: [
               { title: "City", className: ""},
