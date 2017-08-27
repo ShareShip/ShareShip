@@ -17,6 +17,8 @@ gem 'bootstrap', '~> 4.0.0.beta'
 gem 'jquery-rails'
 gem 'devise'
 gem 'font-awesome-rails'
+gem 'faker'
+
 
 group :production do
   gem 'rails_12factor'
@@ -26,7 +28,6 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails', '~> 3.6'
   gem 'pry'
-  gem 'faker'
 end
 
 group :development do
