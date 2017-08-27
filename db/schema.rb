@@ -20,10 +20,10 @@ ActiveRecord::Schema.define(version: 20170826202941) do
     t.bigint "vendor_id"
     t.string "name", default: ""
     t.decimal "price", default: "0.0"
-    t.decimal "shipping", default: "0.0"
     t.integer "quantity", default: 0
     t.datetime "date"
     t.string "city", default: ""
+    t.decimal "shipping", default: "0.0"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_orders_on_user_id"
