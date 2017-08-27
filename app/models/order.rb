@@ -1,6 +1,8 @@
 class Order < ApplicationRecord
   belongs_to :user
   belongs_to :vendor
+  has_one :payment
+
 
   validates :name, presence:true
   validates :price, numericality: {greater_than: 0},
