@@ -10,5 +10,19 @@ class User < ApplicationRecord
 
   validates :email, uniqueness: true, presence: true
   validates :password, presence:true
+  validates :address_line_1, presence:true
+  validates :city, presence: true
+  validates :state, presence: true, length: { is: 2 }
+  validates :zip, presence: true
+
+
+  validates :phone, presence:true, numericality: true, length: {in: 10..15}
+
+
+  def phone=(val)
+    if (val.gsub(/\s+/, "")!="")
+      write_attribute(:phone, val.gsub(/\D/, '').to_i)
+    end
+  end
 
 end

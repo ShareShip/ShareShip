@@ -52,14 +52,14 @@ ActiveRecord::Schema.define(version: 20170826202941) do
     t.datetime "last_sign_in_at"
     t.inet "current_sign_in_ip"
     t.inet "last_sign_in_ip"
-    t.datetime "created_at", null: false
+    t.datetime "cregated_at", null: false
     t.datetime "updated_at", null: false
     t.string "address_line_1", default: ""
     t.string "address_line_2", default: ""
     t.string "city", default: ""
     t.string "state", default: ""
     t.string "zip", default: ""
-    t.string "phone", default: ""
+    t.integer "phone"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
