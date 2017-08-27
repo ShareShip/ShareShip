@@ -1,4 +1,8 @@
 class OrderController < ApplicationController
+  
+  def new
+  end
+
 
 	def index
 		@orders = Order.main_page
