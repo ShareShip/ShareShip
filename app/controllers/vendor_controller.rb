@@ -18,7 +18,11 @@ class VendorController < ApplicationController
 		      format.json {render json: @vendor.store_page }
 		    end
 		else
-			render_404
+			@vendor = Vendor.create(name: params[:name])
+			respond_to do |format|
+		      format.html
+		      format.json {render json: @vendor.store_page }
+		    end
 		end
 	end
 
