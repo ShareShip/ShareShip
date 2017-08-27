@@ -8,9 +8,35 @@
     <div class="row">
       <div class="col-sm-12">
         <table id="order-table" class="hover table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Shipping</th>
+                <th>Quantity</th>
+                <th>Phone Number</th>
+                <th>Date</th>
+                <th colspan="3"></th>
+              </tr>
+            </thead>
 
+            <tbody>
+              <% Order.all.each do |o| %>
+                <tr>
+                  <td><%= o.name %></td>
+                  <td><%= o.price %></td>
+                  <td><%= o.shipping %></td>
+                  <td><%= o.quantity %></td>
+                  <td><%= number_to_phone(o.user.phone) %></td>
+                  <td><%= o.date.strftime("%m/%d/%Y") %></td>
+                  <td><%= link_to 'Purchase', payment_new_url(current_user.id, o.user.id) %></td>
+                </tr>
+              <% end %>
+            </tbody>
         </table>
       </div>
     </div>
   </div>
 </div>
+
+<!-- [o.city, o.name, o.price, o.quantity, number_to_phone(o.user.phone), o.date  -->

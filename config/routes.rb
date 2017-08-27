@@ -11,6 +11,8 @@ Rails.application.routes.draw do
 
   get '/vendors' => 'vendor#index'
   get '/vendor/:name' => 'vendor#show'
-  get '/payment/new' => 'payment#new'
+  get '/payment/new/:from/:to' => 'payment#new', as: :payment_new
+  post '/payment/new/' => 'payment#create'
+
   
 end
