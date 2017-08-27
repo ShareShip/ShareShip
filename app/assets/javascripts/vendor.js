@@ -11,3 +11,12 @@ $.getJSON( location.href +".json",function(data){
             ]
   });
 })
+
+$.getJSON( location.href +".json",function(data){
+  $('#vendor-index-table').DataTable({
+    data: data,
+    columns: [
+              { title: "Vendor", className: ""}
+            ]
+  });
+})
