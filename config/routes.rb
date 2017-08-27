@@ -6,7 +6,6 @@ Rails.application.routes.draw do
   
   get '/orders' => 'order#index'
   get '/order/new' => 'order#new'
-  get '/about' => 'home#about'
   get '/vendors' => 'vendor#index'
   get '/vendor/:name' => 'vendor#show'
   get '/payment/new' => 'payment#new'
