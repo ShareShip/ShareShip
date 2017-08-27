@@ -10,4 +10,13 @@ class Order < ApplicationRecord
   validates :quantity, numericality: { only_integer: true, greater_than_or_equal_to: 1 }
   validates :city, presence:true
   
+  def self.main_page
+  	main_page = []
+  	self.all.each do |o|
+		main_page.push([o.city, o.name, o.price, o.quantity, o.date])
+	end
+	main_page
+  end
+
+
 end
