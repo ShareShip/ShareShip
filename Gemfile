@@ -18,6 +18,10 @@ gem 'jquery-rails'
 gem 'devise'
 gem 'font-awesome-rails'
 
+group :production do
+  gem 'rails_12factor'
+end
+
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails', '~> 3.6'
