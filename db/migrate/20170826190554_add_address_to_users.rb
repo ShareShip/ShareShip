@@ -5,7 +5,7 @@ class AddAddressToUsers < ActiveRecord::Migration[5.1]
     add_column :users, :city, :string, default: ""
     add_column :users, :state, :string, default: ""
     add_column :users, :zip, :string, default: ""
-    add_column :users, :phone, :string, default: ""
+    add_column :users, :phone, :bigint
 
   end
 end

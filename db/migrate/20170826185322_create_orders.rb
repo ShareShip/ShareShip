@@ -8,6 +8,7 @@ class CreateOrders < ActiveRecord::Migration[5.1]
       t.integer :quantity, default: 0
       t.datetime :date
       t.string :city, default: ""
+      t.decimal :shipping, default: 0
 
       t.timestamps
     end
