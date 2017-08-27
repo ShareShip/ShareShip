@@ -36,6 +36,7 @@ vendors = Vendor.all.pluck(:id)
 		  		vendor_id: v_id,
 		  		name: c.product_name,
 		  		price: c.price,
+		  		shipping: rand(8..12).to_s + ".0",
 		  		quantity: rand(1..10),
 		  		date: Time.now,
 		  		city: u.city)
@@ -57,7 +58,7 @@ Order.all.sample(20) do |o|
 		to_id: to_id,
 		price: o.price,
 		quantity: o.quantity,
-		fee: )
+		fee: "0.0")
 
 
 end
