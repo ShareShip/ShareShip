@@ -1,7 +1,12 @@
 class VendorController < ApplicationController
 
 	def index
-		@vendors = Vendor.all
+		@vendors = Vendor.all_stores
+
+		respond_to do |format|
+	      format.html
+	      format.json {render json: @vendors }
+	    end
 	end
 
 	def show
