@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 20170826202941) do
     t.integer "to_id"
     t.integer "order_id"
     t.decimal "price", default: "0.0"
-    t.decimal "quantity", default: "0.0"
+    t.integer "quantity", default: 0
     t.decimal "fee", default: "0.0"
   end
 
@@ -54,8 +54,12 @@ ActiveRecord::Schema.define(version: 20170826202941) do
     t.inet "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "address"
-    t.string "city"
+    t.string "address_line_1", default: ""
+    t.string "address_line_2", default: ""
+    t.string "city", default: ""
+    t.string "state", default: ""
+    t.string "zip", default: ""
+    t.string "phone", default: ""
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
