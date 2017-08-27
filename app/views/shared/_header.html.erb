@@ -22,9 +22,13 @@
       <li class="nav-item"><%= link_to "Log In", new_user_session_url, class: 'nav-link' %></li>
       <% end %>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="text" placeholder="Enter Vendor Name">
-      <button class="btn my-2 my-sm-0" type="submit">Search</button>
+    <form>
+      <input list="vendors-list" id="search_vendor" type="text">
+      <input type="submit" value="search">
     </form>
   </div>
+
+  <datalist id="vendors-list">
+
+  </datalist>
 </nav>

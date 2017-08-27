@@ -13,6 +13,19 @@
 //= require rails-ujs
 //= require jquery3
 //= require popper
-//= require bootstrap
+//= require bootstrap-sprockets
+//= require jquery.dataTables.min.js
+//= require dataTables.bootstrap4.min.js
+//= require dataTables.responsive.min.js
 //= require turbolinks
 //= require_tree .
+
+$.getJSON( "/vendors.json",function(data){
+  // looop through data
+  // store the vendor name in html option tag string  ( var tag = '<option' + data.name)
+
+  $.each(data, function(index, value) {
+    var tag = '<option value=' + value[0] + '></option>';
+    $('#vendors-list').append(tag);
+  })
+})

@@ -1,0 +1,17 @@
+<%= @vendor.name %>
+
+<table id="vendor-table" class="table">
+
+</table>
+
+
+<h2> Products </h2>
+<ul>
+	<% for order in @vendor.orders %>
+	 <li>product name: <%= order.name %></li>
+	 <li>product price: <%= order.price %></li>
+	 <li>product quantity: <%= order.quantity %></li>
+	 <li>order date: <%= order.date %></li>
+	 <li>order city: <%= order.city %></li>
+	<% end %>
+</ul>

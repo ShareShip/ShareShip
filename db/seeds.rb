@@ -10,7 +10,7 @@
 User.create(email: 'admin@example.com', password: 'password')
 
 50.times do
-	Vendor.create(name: Faker::Company.unique.name)
+	Vendor.create(name: Faker::Company.unique.name.gsub(/\,/, '').gsub(/\s+/, "_"))
 end	
 
 vendors = Vendor.all.pluck(:id)
@@ -25,6 +25,7 @@ vendors = Vendor.all.pluck(:id)
 	      zip: Faker::Address.zip,
 	      phone: Faker::PhoneNumber.phone_number
 	  )
+
 
   r = rand(3) # 1 in 3 chance of user having an order listing
 

@@ -21,7 +21,7 @@ class User < ApplicationRecord
 
   def phone=(val)
     if (val.gsub(/\s+/, "")!="")
-      write_attribute(:phone, val.gsub(/\D/, '').to_i)
+      write_attribute(:phone, val.gsub(/\D/, '')[0, 14].to_i)
     end
   end
 
