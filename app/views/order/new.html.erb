@@ -3,4 +3,15 @@
 </div>
 <div class="container">
   <h1 class="form-signin-heading">ShipShare</h1>
+
+  <%= form_for :order do |f| %>
+  	Vendor        <%= f.text_field :vendor_name %><br />
+	Product Name: <%= f.text_field :product_name %><br />
+	Quantity:     <%= f.number_field :quantity %><br />
+	Price:        <%= f.number_field :price %><br />
+	Shipping:     <%= f.number_field :shipping %><br />
+	city:         <%= f.text_field :city %><br />
+	<%= f.submit %>
+  <% end %>
+	  
 </div>

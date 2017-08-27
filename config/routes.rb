@@ -5,7 +5,10 @@ Rails.application.routes.draw do
   root 'home#index'
   
   get '/orders' => 'order#index'
+
   get '/order/new' => 'order#new'
+  post '/order/new' => 'order#create'
+
   get '/vendors' => 'vendor#index'
   get '/vendor/:name' => 'vendor#show'
   get '/payment/new' => 'payment#new'
