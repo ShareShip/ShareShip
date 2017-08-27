@@ -15,6 +15,7 @@
 //= require popper
 //= require bootstrap-sprockets
 //= require jquery.dataTables.min.js
+//= require dataTables.bootstrap4.min.js
 //= require dataTables.responsive.min.js
 //= require turbolinks
 //= require_tree .
