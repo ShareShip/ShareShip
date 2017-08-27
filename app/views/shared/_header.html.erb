@@ -14,13 +14,14 @@
         <a class="nav-link" href="/order/new">Create Order</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Find Listing</a>
+        <a class="nav-link" href="/orders">Find Listing</a>
       </li>
       <% if user_signed_in? %>
-      <li class="nav-item"><%= link_to("Log Out", destroy_user_session_url, method: :delete, class: 'nav-link') %></li>
+        <li class="nav-item"><%= link_to("Log Out", destroy_user_session_url, method: :delete, class: 'nav-link') %></li>
       <% else %>
-      <li class="nav-item"><%= link_to "Log In", new_user_session_url, class: 'nav-link' %></li>
+        <li class="nav-item"><%= link_to "Log In", new_user_session_url, class: 'nav-link' %></li>
       <% end %>
+      <li class="nav-item"><%= link_to "Sign Up", new_user_registration_url, class: 'nav-link' %></li>
     </ul>
     <form>
       <input list="vendors-list" id="search_vendor" type="text">
