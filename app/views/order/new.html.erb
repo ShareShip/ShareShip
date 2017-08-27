@@ -3,4 +3,16 @@
 </div>
 <div class="container">
   <h1 class="form-signin-heading">New Order</h1>
+
+  <%= form_for :order, html: {class: "form-signin form-signin2", id: "order"} do |f| %>
+  <%= f.text_field :vendor_name, placeholder: "Vendor Name", class: "form-control yatin" %><br />
+	<%= f.text_field :product_name, placeholder: "Product Name", class: "form-control yatin" %><br />
+	<%= f.number_field :quantity, placeholder: "Quantity", class: "form-control yatin" %><br />
+	<%= f.number_field :price, placeholder: "Price", class: "form-control yatin" %><br />
+	<%= f.number_field :shipping, placeholder: "Shipping Cost", class: "form-control yatin" %><br />
+	<%= f.text_field :city, placeholder: "City", class: "form-control yatin" %><br />
+  <div class="col-sm-12">
+			<button type="submit" form="order" class="btn btn-success" style="background-color:#2f80ed; border:#2f80ed" id="pay-now">Submit</button>
+	</div>
+  <% end %>
 </div>
