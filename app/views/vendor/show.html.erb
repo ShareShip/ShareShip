@@ -1,17 +1,16 @@
-<%= @vendor.name %>
+<div class="container">
+  <div class="card">
+    <div class="row">
+      <div class="col-sm-12">
+				<h1><%= @vendor.name %></h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+				<table id="vendor-table" class="table">
 
-<table id="vendor-table" class="table">
-
-</table>
-
-
-<h2> Products </h2>
-<ul>
-	<% for order in @vendor.orders %>
-	 <li>product name: <%= order.name %></li>
-	 <li>product price: <%= order.price %></li>
-	 <li>product quantity: <%= order.quantity %></li>
-	 <li>order date: <%= order.date %></li>
-	 <li>order city: <%= order.city %></li>
-	<% end %>
-</ul>
+				</table>
+      </div>
+    </div>
+  </div>
+</div>
